@@ -3,11 +3,11 @@
     'name': "User Terms Acceptance",
 
     'summary': """
-        The module facilitates the display of Terms and Conditions to users during the registration process. 
+        The module facilitates the display of Terms and Conditions to users during the first login. 
         Users can review the terms directly within the registration form.""",
 
     'description': """
-        The module facilitates the display of Terms and Conditions to users during the registration process. 
+        The module facilitates the display of Terms and Conditions to users during the first login.  
         Users can review the terms directly within the registration form.
     """,
 
