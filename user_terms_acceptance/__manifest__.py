@@ -14,12 +14,22 @@
     'author': "Muhardiansyah",
     'website': "https://www.yourcompany.com",
 
-    'category': 'Uncategorized',
+    'category': 'Extra Tools',
     'version': '0.1',
-    'depends': ['web'],
+    'depends': [
+        'base',
+        'web',
+    ],
 
     'data': [
+        'views/res_users_view.xml',
         'views/webclient_templates.xml',
     ],
+    
+    "assets": {
+        "web.assets_frontend": [
+            "/user_terms_acceptance/static/src/js/popup_tnc_acceptance.js",
+        ]
+    },
 
 }

@@ -1,66 +1,69 @@
 <odoo>
-
-    <template id="web_login_terms_acceptance" inherit_id="web.login">
+    
+    <!-- <template id="web_login_terms_acceptance" inherit_id="web.login">
         <xpath expr="//p[@t-if='error']" position="after">
-            <p>
-                <input type="checkbox" id="checkbox_tc" class="form-check-input"/>
-                <label for="checkbox_tc" class="form-check-label">
-                    I agree to the <a target="_BLANK" href="#"  data-bs-toggle="modal" data-bs-target="#TcModal">terms &amp; conditions</a>
-                </label>
-                <div role="dialog" id="TcModal" class="modal" tabindex="-1">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <header class="modal-header">
-                                <h4 class="modal-title">Terms and Conditions</h4>
-                            </header>
-                            <div class="modal-body">
-                                These Terms and Conditions ("Agreement") govern your use of the Odoo sign-up and related services ("Services"). 
-                                By signing up on Odoo, you agree to comply with and be bound by these terms. Please read this Agreement carefully before proceeding.<br/><br/>
+        </xpath>
+    </template> -->
 
-                                1. Acceptance of Terms<br/><br/>
+    <template id="web_login_terms_acceptance" name="Terms and Conditions">
+        <t t-call="web.login_layout">
 
-                                By signing up on Odoo, you acknowledge that you have read, understood, and agree to be bound by this Agreement and any other policies or guidelines posted on the Odoo website.<br/><br/>
+            <div role="dialog" id="TcModal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <header class="modal-header">
+                            <h4 class="modal-title">Terms and Conditions</h4>
+                        </header>
+                        <div class="modal-body">
+                            These Terms and Conditions ("Agreement") govern your use of the Odoo sign-up and related services ("Services"). 
+                            By signing up on Odoo, you agree to comply with and be bound by these terms. Please read this Agreement carefully before proceeding.<br/><br/>
 
-                                2. Account Creation<br/><br/>
+                            1. Acceptance of Terms<br/><br/>
 
-                                2.1. You must provide accurate and complete information during the sign-up process.<br/>
-                                2.2. You are responsible for maintaining the security and confidentiality of your account credentials.<br/>
-                                2.3. You agree not to share your account credentials with third parties.<br/><br/>
+                            By signing up on Odoo, you acknowledge that you have read, understood, and agree to be bound by this Agreement and any other policies or guidelines posted on the Odoo website.<br/><br/>
 
-                                3. Use of Services<br/><br/>
+                            2. Account Creation<br/><br/>
 
-                                3.1. You agree to use the Services only for lawful purposes and in accordance with all applicable laws and regulations.<br/>
-                                3.2. You shall not engage in any activity that may disrupt or interfere with the proper functioning of the Services.<br/>
-                                3.3. You shall not attempt to gain unauthorized access to any part of the Services, other accounts, or computer systems.<br/><br/>
+                            2.1. You must provide accurate and complete information during the sign-up process.<br/>
+                            2.2. You are responsible for maintaining the security and confidentiality of your account credentials.<br/>
+                            2.3. You agree not to share your account credentials with third parties.<br/><br/>
 
-                                4. Privacy<br/><br/>
+                            3. Use of Services<br/><br/>
 
-                                4.1. Your privacy is important to us. Please refer to our Privacy Policy for information about how we collect, use, and disclose your personal information.<br/><br/>
-                                
-                                5. Intellectual Property<br/><br/>
+                            3.1. You agree to use the Services only for lawful purposes and in accordance with all applicable laws and regulations.<br/>
+                            3.2. You shall not engage in any activity that may disrupt or interfere with the proper functioning of the Services.<br/>
+                            3.3. You shall not attempt to gain unauthorized access to any part of the Services, other accounts, or computer systems.<br/><br/>
 
-                                5.1. The content and materials provided through the Services are protected by copyright, trademark, and other intellectual property laws.<br/>
-                                5.2. You may not use, reproduce, distribute, or create derivative works based on the content and materials without our prior written consent.<br/><br/>
+                            4. Privacy<br/><br/>
 
-                                6. Termination<br/><br/>
+                            4.1. Your privacy is important to us. Please refer to our Privacy Policy for information about how we collect, use, and disclose your personal information.<br/><br/>
 
-                                6.1. We reserve the right to suspend or terminate your account and access to the Services at our discretion, without notice, for violation of these terms or any other reason.<br/>
-                                6.2. Upon termination, your access to the Services will cease, and you may lose access to any data associated with your account.<br/><br/>
+                            5. Intellectual Property<br/><br/>
 
-                                7. Changes to Terms<br/><br/>
+                            5.1. The content and materials provided through the Services are protected by copyright, trademark, and other intellectual property laws.<br/>
+                            5.2. You may not use, reproduce, distribute, or create derivative works based on the content and materials without our prior written consent.<br/><br/>
 
-                                7.1. We may update or modify these terms at any time. Any changes will be effective upon posting on the Odoo website.<br/>
-                                7.2. Your continued use of the Services after such changes constitutes your acceptance of the modified terms.<br/><br/>
+                            6. Termination<br/><br/>
 
-                                8. Limitation of Liability<br/><br/>
+                            6.1. We reserve the right to suspend or terminate your account and access to the Services at our discretion, without notice, for violation of these terms or any other reason.<br/>
+                            6.2. Upon termination, your access to the Services will cease, and you may lose access to any data associated with your account.<br/><br/>
 
-                                8.1. To the extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Services.<br/>
-                             </div>
-                            <footer class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Agree</button></footer>
-                        </div>
+                            7. Changes to Terms<br/><br/>
+
+                            7.1. We may update or modify these terms at any time. Any changes will be effective upon posting on the Odoo website.<br/>
+                            7.2. Your continued use of the Services after such changes constitutes your acceptance of the modified terms.<br/><br/>
+
+                            8. Limitation of Liability<br/><br/>
+
+                            8.1. To the extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Services.<br/>
+                         </div>
+                        <footer class="modal-footer">
+                            <!-- <button  type="submit" name="redirect" value="/web?" class="btn btn-primary" data-bs-dismiss="modal">I Agree</button> -->
+                            <button id="agreeButton" class="btn btn-primary" data-bs-dismiss="modal">I Agree</button>
+                        </footer>
                     </div>
                 </div>
-            </p>
-        </xpath>
+            </div>
+        </t>
     </template>
 </odoo>

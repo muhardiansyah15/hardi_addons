@@ -1,0 +1,26 @@
+<odoo>
+
+    <record id="view_users_tree_inherit" model="ir.ui.view">
+        <field name="name">view.users.tree.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <field name="login_date" position="after">
+                <field name="tnc_acceptance"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="term_and_conditions_users" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='preferences']/group[1]" position="inside">
+                <group string="Term and Conditions">
+                    <field name="tnc_acceptance"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

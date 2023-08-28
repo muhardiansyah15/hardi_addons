@@ -2,25 +2,33 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
-from datetime import datetime
-import odoo
-import pytz
-from dateutil.relativedelta import relativedelta
-from odoo import http, fields, SUPERUSER_ID, _
-from odoo.http import request, route
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.addons.web.controllers.home import Home
-from odoo.addons.web.controllers.session import Session
-from odoo.addons.web.controllers.action import Action
-from odoo.addons.web.controllers.utils import clean_action
+from odoo import http
+from odoo.http import request
+from odoo.addons.web.controllers.home import Home as Hompage, LOGIN_SUCCESSFUL_PARAMS
+from odoo.addons.web.controllers.utils import _get_login_redirect_url
+
 
 
 _logger = logging.getLogger(__name__)
 
 
-class HomeTnc(Home):
+class HomeTermAndConditions(Hompage):
 
-    @http.route()
-    def web_login(self, *args, **kw):
-        print("WKWKWKWWKHAHAHAAHAHAHAHA = = \n\n\n\n")
-        return super().web_login(*args, **kw)
+    def _login_redirect(self, uid, redirect=None):
+        user = request.env['res.users'].browse(uid)
+        if not user.tnc_acceptance:
+            redirect = 'web/terms_and_conditions'
+        return super()._login_redirect(uid, redirect=redirect)
+    
+    
+    @http.route('/web/terms_and_conditions', type='http', auth='user', website=True, sitemap=False)
+    def user_terms_and_conditions(self, **kwargs):
+        valid_values = {k: v for k, v in kwargs.items() if k in LOGIN_SUCCESSFUL_PARAMS}
+        return request.render('user_terms_acceptance.web_login_terms_acceptance', valid_values)
+    
+    
+    @http.route('/accepted_terms', type='http', auth='user', website=True, sitemap=False)
+    def accepted_terms(self, **kwargs):
+        user = request.env['res.users'].browse(request.session.uid)
+        user.sudo().write({'tnc_acceptance': True})
+        return request.redirect_query('/web', query=request.params)

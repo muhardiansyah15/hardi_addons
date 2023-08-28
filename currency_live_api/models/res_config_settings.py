@@ -30,7 +30,7 @@ class ResCompany(models.Model):
     currency_next_execution_date = fields.Date(string="Next Execution Date")
     currency_provider = fields.Selection([
         ('freecurr','FreecurrencyAPI'),
-    ], default='ecb', string='Service Provider')
+    ], default='freecurr', string='Service Provider')
 
     @api.model
     def create(self, vals):

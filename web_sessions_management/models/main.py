@@ -46,12 +46,12 @@ class ActionWeb(Action):
                 value = clean_action(action[0], env=request.env)
         
             
-        sessions = request.env['ir.sessions'].sudo().search(
-            [('logged_in', '=', True),
-            ('user_id', '=', request.session.uid)])
-            
-        if not sessions and request.env.user.interval_number > 0:
-            request.session.logout(keep_db=True)
+        #sessions = request.env['ir.sessions'].sudo().search(
+        #    [('logged_in', '=', True),
+        #    ('user_id', '=', request.session.uid)])
+        #    
+        #if not sessions and request.env.user.interval_number > 0:
+        #    request.session.logout(keep_db=True)
         
         if 'action.activity' in request.env:
             xml_id = 'access_action_activity'

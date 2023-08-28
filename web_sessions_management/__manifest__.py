@@ -35,7 +35,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-            # "/web_sessions_management/static/src/js/customize_session.js",
+            "/web_sessions_management/static/src/js/customize_session.js",
         ]
     },
     'installable': True,
