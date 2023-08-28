@@ -3,17 +3,14 @@
     'name': "User Terms Acceptance",
 
     'summary': """
-        The module facilitates the display of Terms and Conditions to users during the first login. 
-        Users can review the terms directly within the registration form.""",
+        The module facilitates the display of Terms and Conditions to users during the first login.""",
 
     'description': """
-        The module facilitates the display of Terms and Conditions to users during the first login.  
-        Users can review the terms directly within the registration form.
+        The module facilitates the display of Terms and Conditions to users during the first login.
     """,
 
     'author': "Muhardiansyah",
-    'website': "https://www.yourcompany.com",
-
+    'website': "https://github.com/muhardiansyah15/hardi_addons",
     'category': 'Extra Tools',
     'version': '0.1',
     'depends': [
