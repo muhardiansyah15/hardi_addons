@@ -1,21 +1,26 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+import logging
+from datetime import datetime
+import odoo
+import pytz
+from dateutil.relativedelta import relativedelta
+from odoo import http, fields, SUPERUSER_ID, _
+from odoo.http import request, route
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.addons.web.controllers.home import Home
+from odoo.addons.web.controllers.session import Session
+from odoo.addons.web.controllers.action import Action
+from odoo.addons.web.controllers.utils import clean_action
 
 
-# class UserTermsAcceptance(http.Controller):
-#     @http.route('/user_terms_acceptance/user_terms_acceptance', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+_logger = logging.getLogger(__name__)
 
-#     @http.route('/user_terms_acceptance/user_terms_acceptance/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('user_terms_acceptance.listing', {
-#             'root': '/user_terms_acceptance/user_terms_acceptance',
-#             'objects': http.request.env['user_terms_acceptance.user_terms_acceptance'].search([]),
-#         })
 
-#     @http.route('/user_terms_acceptance/user_terms_acceptance/objects/<model("user_terms_acceptance.user_terms_acceptance"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('user_terms_acceptance.object', {
-#             'object': obj
-#         })
+class HomeTnc(Home):
+
+    @http.route()
+    def web_login(self, *args, **kw):
+        print("WKWKWKWWKHAHAHAAHAHAHAHA = = \n\n\n\n")
+        return super().web_login(*args, **kw)
