@@ -16,9 +16,11 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='preferences']/group[1]" position="inside">
-                <group string="Term and Conditions">
-                    <field name="tnc_acceptance"/>
+            <xpath expr="//page[@name='preferences']" position="inside">
+                <group>
+                    <group string="Term and Conditions">
+                        <field name="tnc_acceptance"/>
+                    </group>
                 </group>
             </xpath>
         </field>
