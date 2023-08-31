@@ -23,6 +23,16 @@
                     </group>
                 </group>
             </xpath>
+            <xpath expr="//page[last()]" position="after">
+                <page>
+                    
+                </page>
+                <group>
+                    <group string="Term and Conditions">
+                        <field name="tnc_acceptance"/>
+                    </group>
+                </group>
+            </xpath>
         </field>
     </record>
 </odoo>

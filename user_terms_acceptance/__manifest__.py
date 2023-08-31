@@ -19,7 +19,9 @@
     ],
 
     'data': [
+        'data/example_user_terms_and_conditions.xml',
         'views/res_users_view.xml',
+        'views/res_company_view.xml',
         'views/webclient_templates.xml',
     ],
     

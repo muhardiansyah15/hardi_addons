@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+         <!-- Action Activity -->
+         <record id="view_action_activity_tree" model="ir.ui.view">
+            <field name="name">action.activity.tree</field>
+            <field name="model">action.activity</field>
+            <field name="arch" type="xml">
+                <tree string="State" create="false" edit="false">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="ip"/>
+                    <field name="action_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_action_activity_search" model="ir.ui.view">
+            <field name="name">action.activity.search</field>
+            <field name="model">action.activity</field>
+            <field name="arch" type="xml">
+                <search string="Action Activities">
+                    <field name="user_id"/>
+                    <field name="ip"/>
+                    <field name="action_id"/>
+                    <field name="date"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_action_activity" model="ir.actions.act_window">
+            <field name="name">User's Action Activities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">action.activity</field>
+            <field name="view_id" ref="view_action_activity_tree"/>
+        </record>
+
+        <menuitem id="menu_action_activity"
+            action="action_action_activity"
+            parent="base.menu_administration"
+            sequence="20"/>
+
+        
+    </data>
+</odoo>

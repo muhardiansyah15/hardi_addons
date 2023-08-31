@@ -24,6 +24,9 @@ class HomeTermAndConditions(Hompage):
     @http.route('/web/terms_and_conditions', type='http', auth='user', website=True, sitemap=False)
     def user_terms_and_conditions(self, **kwargs):
         valid_values = {k: v for k, v in kwargs.items() if k in LOGIN_SUCCESSFUL_PARAMS}
+        user = request.env['res.users'].browse(request.session.uid)
+        terms_content_html = user.company_id.terms_content_html or ''
+        valid_values['terms_content_html'] = terms_content_html
         return request.render('user_terms_acceptance.web_login_terms_acceptance', valid_values)
     
     
